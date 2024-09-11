@@ -26,9 +26,7 @@ const ReusableTableComponent = () => {
     const handleUsersListAPI = async () => {
         try {
             const result = await getUsersList();
-            console.log(result.data);
             setData(result.data)
-
         } catch (error) {
             console.error(error);
 
@@ -89,17 +87,11 @@ const ReusableTableComponent = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("is form valid:-", validateForm());
-        console.log("errors.name", errors, errors.name);
 
         if (!validateForm()) {
-            // toast.error('Name and Email Required', {
-            //     autoClose: 3000,
-            // });
             return;
         }
         if (validateForm()) {
-            console.log('Form Data:', formData);
             if (mode === 'new') {
                 const body = {
                     id: data.length + 1,
